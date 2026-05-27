@@ -1,4 +1,4 @@
-const BucketHeader = () => {
+const BucketHeader = ({ buckets }) => {
   const today = new Date();
   const week = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -12,6 +12,8 @@ const BucketHeader = () => {
   // 비구조화 할당
   const { year, month, date, day } = dateString;
 
+  const falseChks = buckets.filter((bucket) => !bucket.chk);
+
   return (
     <div className="p-6 border border-[#e9ecef]">
       <h1 className="mb-7.5 text-4xl text-center text-[#343a40]">
@@ -21,7 +23,7 @@ const BucketHeader = () => {
         현재: {year}년 {month}월 {date}일 {week[day]}요일
       </h2>
       <p className="mt-4 text-[#0593d3] text-right text-xl font-medium">
-        달성할 목표 3개 남음
+        달성할 목표 {falseChks.length}개 남음
       </p>
     </div>
   );
