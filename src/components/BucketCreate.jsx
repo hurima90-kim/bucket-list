@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdAdd } from "react-icons/md";
+import { BucketContext } from "../utils/context/Bucketcontext";
 
-const BucketCreate = ({ value, onDataChange, onSubmit }) => {
+const BucketCreate = () => {
+  const { value, onDataChange, onSubmit } = useContext(BucketContext);
+
   const [open, setOpen] = useState(false);
 
   const onToggle = () => setOpen(!open);

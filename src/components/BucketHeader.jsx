@@ -1,4 +1,8 @@
-const BucketHeader = ({ buckets }) => {
+import { useContext } from "react";
+import { BucketContext } from "../utils/context/Bucketcontext";
+
+const BucketHeader = () => {
+  const { buckets } = useContext(BucketContext);
   const today = new Date();
   const week = ["일", "월", "화", "수", "목", "금", "토"];
 

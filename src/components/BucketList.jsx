@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import BucketItem from "./BucketItem";
+import { BucketContext } from "../utils/context/Bucketcontext";
 
-const BucketList = ({ buckets, onToggle, onRemove }) => {
+const BucketList = () => {
+  const { buckets, onToggle, onRemove } = useContext(BucketContext);
+
   return (
     <div className="bucket-list pt-5 px-8 pb-12 overflow-y-auto">
       {buckets.map((bucket) => (
